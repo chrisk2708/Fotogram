@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    align-items: center;
+    height: 81px;
+    width: 100%;
+    max-width: 1920px;
+    background-color: var(--primary-hf-color);
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 140px;
+    width: 215px;
+    height: 41px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1440px;
+    
+}
+
+.headline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Figtree";
+    font-weight: 800;
+    font-size: 56px;
+    color: var(--primary-font-color);
+    }
