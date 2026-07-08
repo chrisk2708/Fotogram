@@ -11,6 +11,7 @@ body {
 .header {
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     height: 81px;
     width: 100%;
     /* max-width: 1920px; */
@@ -44,7 +45,7 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 56px;
+    font-size: clamp(1.5rem, 2.857vw + 0.929rem, 3.5rem);
     color: var(--primary-font-color);
     width: 100%;
     max-width: 1440px;
@@ -81,7 +82,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 688px;
+    max-width: 688px;
     height: auto;
     background-color: var(--primary-hfd-color);
     border-radius: 40px;
@@ -220,5 +221,21 @@ body {
 @media screen and (max-width: 1440px) {
     .main-content {
     padding: 0 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: center;
+
+        .header-logo {
+            left: unset;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .headline {
+        text-align: center;
     }
 }
