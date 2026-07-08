@@ -6,29 +6,44 @@
     <link rel="stylesheet" href="./styles/standard.css">
     <link rel="stylesheet" href="./styles/font.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.png"/>
+    <script defer src="./templates.js"></script>
+    <script defer src="./script.js"></script>
     <title>Fotogram</title>
+
 </head>
-<body>
-    <header>
+<body onload="render()">
+    <header class="header">
         <!--Fotogram Logo-->
         <div class="header-logo">
             <img src="./assets/icons/header_logo.png" alt="Fotogram Header Logo">
         </div>
     </header>
 
-    <main class="main-content">
-        <h1 class="headline">Your personal photo album</h1>
-
-        <section>
-            <!--Fotoalbum-->
+    <main>
+        <!--Bildergalerie-->
+        <section class="main-content">
+            <h1 class="headline">Your personal photo album</h1>
+            <div id="content-box" aria-label="Bildergalerie"></div>
+            
+            <dialog id="myDialog" class="my-dialog" aria-labelledby="headlineDialog">
+                <header class="headline-dialog">
+                    <h2 id="headlineDialog" aria-label="Bildname" tabindex="-1"></h2>
+                    <button id="btnDialog" class="btn-dialog" onclick="closeDialog(event)"></button>
+                </header>
+                <section id="contentDialog" class="content-dialog" onclick="closeDialog"></section>
+                <footer id="footerDialog" class="footer-dialog" onclick="closeDialog"></footer>
+            </dialog>
         </section>
-
     </main>
 
-    <footer>
+    <footer class="footer">
         <!--DA Logo & Copyright-->
-        <img src="./assets/icons/da_logo.png" alt="Footer DA Logo">
-        <p>&copy; 2023 Developer Akademie GmbH</p>
+        <div class="footer-content">
+            <img src="./assets/icons/da_logo.png" alt="Footer DA Logo">
+            <p>&copy; 2023 Developer Akademie GmbH</p>
+        </div>
     </footer>
 </body>
+
 </html>
