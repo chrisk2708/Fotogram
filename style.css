@@ -4,17 +4,15 @@ body {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    min-height: 100dvh;
+    min-height: 100svh;
     background-color: var(--primary-bg-color);
 }
 
 .header {
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     height: 81px;
     width: 100%;
-    /* max-width: 1920px; */
     background-color: var(--primary-hfd-color);
 }
 
@@ -35,9 +33,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
     width: 100%;
     max-width: 1440px;
-    background-color: var(--primary-bg-color);
+    /* background-color: var(--primary-bg-color); */
+    background-color: darkgray;
 }
 
 .headline {
@@ -70,10 +70,11 @@ body {
         object-fit: cover;
         border: 2px solid var(--primary-border-color);
         border-radius: 16px;
+        cursor: pointer;
     }
 
     img:hover {
-            border-color: rgba(107, 193, 225, 1);
+            border-color: var(--secondary-border-color);
         }
 }
 
@@ -82,8 +83,9 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    max-width: 688px;
-    height: auto;
+    max-width: min(80vw, 688px);
+    width: 100%;
+    height: 90%;
     background-color: var(--primary-hfd-color);
     border-radius: 40px;
     border: none;
@@ -92,37 +94,34 @@ body {
     align-self: center;
     justify-self: center;
 
-    .headline-dialog {
+    .header-dialog {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        width: 560px;
+        width: 100%;
         height: 32px;
         background-color: var(--primary-hfd-color);
-
     
         h2 {
             display: flex;
-            justify-content: center;
-            font-size: 24px;
+            width: 80%;
+            height: 48px;
+            font-size: clamp(1.125rem, 0.526vw + 1.026rem, 1.5rem);
             font-weight: 700;
             line-height: 100%;
             color: var(--primary-font-color);
+            text-align: center;
+            /* white-space: nowrap; */
         }
 
         .btn-dialog {
             display: flex;
             align-items: center;
-            justify-content: center;
-            flex-direction: row;
-            width: 100%;
-            height: 32px;
-
             object-fit: cover;
             border-radius: 100px;
             border: none;
             width: 32px;
             height: 32px;
+            cursor: pointer;
             background-color: var(--primary-hfd-color);
         }
 
@@ -136,12 +135,13 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(100, 100, 100, 0.3);
+        /* background-color: rgba(100, 100, 100, 0.3); */
 
         img {
-            object-fit: cover;
-            width: 560px;
-            height: 375px;
+            object-fit: contain;
+            width: 100%;
+            max-width: clamp(300px, 80vw, 560px);
+            height: 400px;
         }
     }
 
@@ -149,7 +149,6 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /* background-color: rgba(100, 100, 100, 0.3); */
         width: 260px;
         height: 60px;
 
@@ -175,7 +174,7 @@ body {
             }
 
         p {
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 500;
             line-height: 100%;
             color: rgba(245, 245, 245, 1);
@@ -184,7 +183,6 @@ body {
 }
 
 .my-dialog::backdrop {
-    /* background-color: rgba(0, 0, 0, 0.5); */
     backdrop-filter: blur(4px);
 }
 
@@ -224,6 +222,12 @@ body {
     }
 }
 
+@media screen and (max-width: 860px) {
+    .my-dialog.opened {
+        padding: 32px 21px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .header {
         justify-content: center;
@@ -232,10 +236,36 @@ body {
             left: unset;
         }
     }
+
+    .header-dialog {
+        flex-direction: column-reverse;
+        align-items: end;
+        gap: 8px;
+        height: 69px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .my-dialog.opened {
+        gap: 16px;
+        height: 80%;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .headline {
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .content-dialog img {
+        max-width: clamp(250px, 50vw, 430px);
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .my-dialog.opened .footer-dialog {
+        width: 200px;
     }
 }

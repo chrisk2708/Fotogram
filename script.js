@@ -1,8 +1,8 @@
 // Array erstellen
 const myArray = [
     { 
-        name: "See mit Eisschollen und schneebedeckte Berge", 
-        path: "./assets/img/See mit Eisschollen und schneebedeckte Berge.jpg" 
+        name: "See mit Eisschollen", 
+        path: "./assets/img/See mit Eisschollen.jpg" 
     },
     { 
         name: "Anime Stadt bei Nacht", 
@@ -17,44 +17,45 @@ const myArray = [
         path: "./assets/img/Blaumeise auf einem Zweig.jpg" 
     },
     { 
-        name: "Wirbelsturm aus dem Weltraum fotografiert", 
-        path: "./assets/img/Wirbelsturm aus dem Weltraum fotografiert.jpg" 
+        name: "Wirbelsturm von oben", 
+        path: "./assets/img/Wirbelsturm von oben.jpg" 
     },
     { 
-        name: "See mit schneebedekten Bergen dahinter", 
-        path: "./assets/img/See mit schneebedekten Bergen dahinter.jpg" 
+        name: "See mit schneebedekten Bergen", 
+        path: "./assets/img/See mit schneebedekten Bergen.jpg" 
     },
     { 
-        name: "Männliche Tafelente auf dem Wasser", 
-        path: "./assets/img/Männliche Tafelente auf dem Wasser.jpg" 
+        name: "Männliche Tafelente im Wasser", 
+        path: "./assets/img/Männliche Tafelente im Wasser.jpg" 
     },
     { 
-        name: "Mann leuchtet mit Taschenlampe den Sternenhimmel an", 
-        path: "./assets/img/Mann leuchtet mit Taschenlampe den Sternenhimmel an.jpg" 
+        name: "Mann und Sternenhimmel", 
+        path: "./assets/img/Mann und Sternenhimmel.jpg" 
     },
     { 
-        name: "Schneeammer im Winterkleid sitzt auf Stein", 
-        path: "./assets/img/Schneeammer im Winterkleid sitzt auf Stein.jpg" 
+        name: "Schneeammer im Winterkleid", 
+        path: "./assets/img/Schneeammer im Winterkleid.jpg" 
     },
     { 
-        name: "2 Schneeleoparden-Babys erkunden die Gegend", 
-        path: "./assets/img/2 Schneeleoparden-Babys erkunden die Gegend.jpg" 
+        name: "2 Schneeleoparden-Babys", 
+        path: "./assets/img/2 Schneeleoparden-Babys.jpg" 
     },
     { 
-        name: "Steinige mit Schnee bedeckte Berge", 
-        path: "./assets/img/Steinige mit Schnee bedeckte Berge.jpg" 
+        name: "Steinige Berge mit Schnee", 
+        path: "./assets/img/Steinige Berge mit Schnee.jpg" 
     },
     { 
-        name: "Eingeschneiter Baum in Winterlandschaft", 
-        path: "./assets/img/Eingeschneiter Baum in Winterlandschaft.jpg" 
+        name: "Eingeschneiter Baum", 
+        path: "./assets/img/Eingeschneiter Baum.jpg" 
     }
 
 ];
 
-// Boxen rendern / dynamisch erstellen
 const contentRef = document.getElementById('content-box');
+const dialogRef = document.getElementById('myDialog');
 
-function render() {
+// Boxen rendern / dynamisch erstellen
+function render(event) {
     contentRef.innerHTML = "";
     for (let i = 0; i < myArray.length; i++) {
         contentRef.innerHTML += templateBoxes(i);
@@ -64,8 +65,6 @@ function render() {
 }
 
 // Dialog erstellen
-const dialogRef = document.getElementById('myDialog');
-
 function openDialog(i) {
     dialogRef.showModal();
     dialogRef.classList.add('opened');
@@ -87,6 +86,13 @@ function openDialog(i) {
     footerRef.innerHTML += templateDialogFooter(i);
 }
 
+// Dialog schließen mit ESC
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape') {
+    dialogRef.classList.remove('opened');
+    }
+});
+
 // Button Navigation Pfeil-Links
 function btnArrowLeft(i) {
     if (i == 0) {
@@ -94,7 +100,7 @@ function btnArrowLeft(i) {
     } else {
         i--;
     }
-    closeDialog();
+    closeDialog(event);
     openDialog(i);
 }
 
@@ -105,7 +111,7 @@ function btnArrowRight(i) {
     } else {
         i++;
     }
-    closeDialog();
+    closeDialog(event);
     openDialog(i);
 }
 
