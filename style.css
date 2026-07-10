@@ -83,7 +83,7 @@ body {
     flex-direction: column;
     max-width: min(80vw, 688px);
     width: 100%;
-    height: 100svh;
+    max-height: 100svh;
     background-color: var(--primary-hfd-color);
     border-radius: 40px;
     border: none;
@@ -132,12 +132,17 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: fit-content;
+        max-width: 600px;
+        height: 450px;
 
         img {
             object-fit: contain;
             width: 100%;
-            max-width: clamp(300px, 80vw, 560px);
-            height: 400px;
+            max-width: 580px;
+            /* max-width: clamp(300px, 80vw, 560px); */
+            height: 100%;
+            max-height: 600px;
         }
     }
 
@@ -244,7 +249,7 @@ body {
 @media screen and (max-width: 600px) {
     .my-dialog.opened {
         gap: 16px;
-        height: 80%;
+        min-height: 80%;
     }
 }
 
