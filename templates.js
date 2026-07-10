@@ -1,8 +1,8 @@
 function templateBoxes(i) {
     return /*html*/ `
-        <div id="box${i}" onclick="openDialog(${i})" aria-haspopup="dialog" aria-controls="myDialog">
+        <button id="box${i}" onclick="openDialog(${i})" aria-haspopup="dialog" aria-controls="myDialog">
             <img src="${myArray[i].path}" alt="${myArray[i].name}" onclick="openDialog(${i})">
-        </div>
+        </button>
         `;
 }
 

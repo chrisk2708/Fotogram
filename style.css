@@ -66,12 +66,17 @@ body {
         width: 150px;
         height: 150px;
         object-fit: cover;
-        border: 2px solid var(--primary-border-color);
+        border: 1px solid var(--primary-border-color);
         border-radius: 16px;
         cursor: pointer;
     }
 
-    img:hover {
+        button {
+            background-color: var(--primary-hfd-color);
+            border-radius: 16px;
+        }
+
+        button:hover {
             border-color: var(--secondary-border-color);
         }
 }
