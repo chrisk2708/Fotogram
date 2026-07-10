@@ -22,13 +22,13 @@
 
     <main>
         <!--Bildergalerie-->
-        <section class="main-content" aria-labelledby="headline">
-            <h1 class="headline">My personal photo album</h1>
+        <section class="main-content" aria-labelledby="headLine">
+            <h1 id="headLine" class="headline">My personal photo album</h1>
             <div id="content-box" aria-label="Bildergalerie"></div>
             
             <dialog id="myDialog" class="my-dialog" aria-labelledby="headlineDialog">
                 <header class="header-dialog">
-                    <h2 id="headlineDialog" aria-label="Bildname" tabindex="-1"></h2>
+                    <h2 id="headlineDialog" aria-label="Bildname" tabindex="1"></h2>
                     <button id="btnDialog" class="btn-dialog" aria-label="Dialog schließen" onclick="closeDialog(event)"></button>
                 </header>
                 <section id="contentDialog" class="content-dialog" onclick="closeDialog"></section>
